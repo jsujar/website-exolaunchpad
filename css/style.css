@@ -1721,8 +1721,8 @@ ol {
 #mc_embed_signup form {display:block; position:relative; text-align:left; padding:10px 0 10px 3%}
 #mc_embed_signup h2 {font-weight:bold; padding:0; margin:15px 0; font-size:1.4em;}
 /* #mc_embed_signup input {border: 1px solid #ABB0B2; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;} */
-#mc_embed_signup input[type=checkbox]{-webkit-appearance:checkbox;}
-#mc_embed_signup input[type=radio]{-webkit-appearance:radio;}
+/* #mc_embed_signup input[type=checkbox]{-webkit-appearance:checkbox;} */
+/* #mc_embed_signup input[type=radio]{-webkit-appearance:radio;} */
 #mc_embed_signup input:focus {border-color:#333;}
 #mc_embed_signup .button {clear:both; background-color: #aaa; border: 0 none; border-radius:4px; transition: all 0.23s ease-in-out 0s; color: #FFFFFF; cursor: pointer; display: inline-block; font-size:15px; font-weight: normal; height: 32px; line-height: 32px; margin: 0 5px 10px 0; padding: 0 22px; text-align: center; text-decoration: none; vertical-align: top; white-space: nowrap; width: auto;}
 #mc_embed_signup .button:hover {background-color:#777;}
@@ -1771,11 +1771,70 @@ ol {
 
 
 /* exo stylys */
+.exo-hero-bg {
+	background-image: url(../img/exo/bg-55.png);
+	background-attachment: fixed;
+}
+
 .exo-feature-icon {
 	width: 100px;
 	margin-bottom: 30px;
 }
+
+.exo-form-bg1 {
+	background-image: url(../img/exo/bg-60.png);
+	background-attachment: fixed;
+	margin: -4px 0;
+}
+
+.exo-form-bg2 {
+	background-image: url(../img/exo/bg-54.png);
+	background-attachment: fixed;
+	margin: -4px 0;
+}
+
+.exo-form-checkbox {
+	-webkit-appearance: none;
+	display: inline-block;
+	margin-right: 6px;
+	vertical-align: middle;
+	position: relative;
+	top: -1px;
+	width: 30px;
+	height: 30px;
+	background: #fff;
+	border: 3px solid #999;
+	border-radius: 5px;
+}
+	.exo-form-checkbox:checked + :before {
+		content: "";
+		position: absolute;
+		display: block;
+		background: #999;
+		width: 18px;
+		height: 18px;
+		margin: 6px;
+		border-radius: 5px;
+		transform: translate(-40px, -3px);
+	}
+
 .exo-form-submit {
 	text-align: center;
-	margin: 50px 0 80px;
+	margin-top: 50px;
 }
+
+.exo-footer {
+	padding: 50px 0;
+	background-image: url(../img/exo/bg-6.png);
+	text-align: center;
+}
+	.exo-footer .footer-widget li {
+		display: inline-block;
+		padding: 0 20px;
+	}
+		.exo-footer .footer-widget li a {
+			opacity: 1;
+		}
+	.exo-footer .copyright {
+		float: none;
+	}

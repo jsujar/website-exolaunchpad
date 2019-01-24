@@ -1810,6 +1810,10 @@ ol {
 	text-align: center;
 	margin-top: 50px;
 }
+	.exo-form-submit button:disabled {
+		opacity: 0.5;
+		cursor: default;
+	}
 
 .exo-footer {
 	padding: 50px 0;

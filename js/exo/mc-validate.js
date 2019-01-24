@@ -279,19 +279,22 @@
 		        } catch(e){
 		            $(formEl).find('.mce-'+resp.result+'-response').show();
 		            $(formEl).find('.mce-'+resp.result+'-response').html(msg);
-		        }
+				}
 		    }
 		}
 	}
 
 	window.mc.mce_validator = $(".mc-embedded-subscribe-form").each(function(i, formEl) {
+		var $submit = $(formEl).find('button[type="submit"]');
 		$(formEl).validate({
 			// Set error HTML: <div class="mce_inline_error"></div>
 			errorClass: "mce_inline_error", 
 			errorElement: "div", 
 			
 			// Validate fields on keyup, focusout and blur. 
-			onkeyup: false,
+			onkeyup: function() {
+				$submit.attr('disabled', !$(formEl).valid());
+			},
 			onfocusout: function(element) { 
 				if (!mc.isTooEarly(element)) {
 					$(element).valid();
@@ -313,12 +316,18 @@
 			// Submit the form via ajax (see: jQuery Form plugin)
 			submitHandler: function(formEl) {
 				var validator = this;
+				$submit.attr('disabled', true);
 				$(formEl).ajaxSubmit({ 
 					url: mc.getAjaxSubmitUrl(formEl), 
 					type: 'GET', 
 					dataType: 'json', 
 					contentType: "application/json; charset=utf-8",
-					success: function(resp) { mc.mce_success_cb(validator, formEl, resp); }
+					success: function(resp) {
+						mc.mce_success_cb(validator, formEl, resp);
+					},
+					error: function() {
+						$submit.attr('disabled', false);
+					}
 				});
 			}
 		});

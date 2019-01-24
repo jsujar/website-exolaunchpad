@@ -39,7 +39,7 @@
 			dateArray['month'] = $fields.filter("input[name*='[month]']").val();
 			dateArray['day'] = $fields.filter("input[name*='[day]']").val();
 			dateArray['year'] = $fields.filter("input[name*='[year]']").val();
-		      
+
 	        // correct month value
 	        dateArray['month'] = dateArray['month'] - 1;
 
@@ -176,9 +176,9 @@
 		 *	validation error, which can break up a set of inputs. Use the errorPlacement setting in
 		 *	the validator to control error div placement.
 		 */
-		getGroups: function (){ 
+		getGroups: function (formEl) {
 			var groups = {};
-			$(".mc-field-group").each(function(index) {
+			$(formEl).find(".mc-field-group").each(function(index) {
 				var inputs = $(this).find("input:text:not(:hidden), input:checkbox:not(:hidden)");
 				if (inputs.length > 1) {
 					var mergeName = inputs.first().attr("name");
@@ -211,7 +211,7 @@
 		 *	Success messages are appended to .mce-success-response
 		 *	Error messages are displayed with the invalid input when possible, or appended to .mce-error-response
 		 */
-		mce_success_cb: function(formEl, resp){
+		mce_success_cb: function(validator, formEl, resp){
 
 		    $(formEl).find('.mce-success-response').hide();
 		    $(formEl).find('.mce-error-response').hide();
@@ -220,9 +220,7 @@
 		    if (resp.result == "success"){
 		        $(formEl).find('.mce-'+resp.result+'-response').show();
 		        $(formEl).find('.mce-'+resp.result+'-response').html(resp.msg);
-		        $(formEl).find('.mc-embedded-subscribe-form').each(function(){
-		            this.reset();
-		    	});
+				formEl.reset();
 
 		    // If the form has errors, display them, inline if possible, or appended to .mce-error-response
 		    } else {
@@ -264,17 +262,19 @@
 		        }
 
 		        try {
+					
 		        	// If index is -1 if means we don't have data on specifically which field was invalid.
 		        	// Just lump the error message into the generic response div.
 		            if (index == -1){
 		                $(formEl).find('.mce-'+resp.result+'-response').show();
-		                $(formEl).find('.mce-'+resp.result+'-response').html(msg);      
+		                $(formEl).find('.mce-'+resp.result+'-response').html(msg);
 
 		            } else {
-		                var fieldName = $("input[name*='"+fnames[index]+"']").attr('name'); // Make sure this exists (they haven't deleted the fnames array lookup)
+						var fnames = $(formEl).data('fields');
+						var fieldName = $(formEl).find("input[name*='"+fnames[index]+"']").attr('name'); // Make sure this exists (they haven't deleted the fnames array lookup)
 		                var data = {};
-		                data[fieldName] = msg;
-		                mc.mce_validator.showErrors(data);
+						data[fieldName] = msg;
+		                validator.showErrors(data);
 		            }
 		        } catch(e){
 		            $(formEl).find('.mce-'+resp.result+'-response').show();
@@ -305,19 +305,20 @@
 			// Grouping fields makes jQuery Validation display one error for all the fields in the group
 			// It doesn't have anything to do with how the fields are validated (together or separately), 
 			// it's strictly for visual display of errors
-			groups: mc.getGroups(),
+			groups: mc.getGroups(formEl),
 			// Place a field's inline error HTML just before the div.mc-field-group closing tag 
 			errorPlacement: function(error, element) {
 				element.closest('.mc-field-group').append(error);
 			},
 			// Submit the form via ajax (see: jQuery Form plugin)
 			submitHandler: function(formEl) {
+				var validator = this;
 				$(formEl).ajaxSubmit({ 
 					url: mc.getAjaxSubmitUrl(formEl), 
 					type: 'GET', 
 					dataType: 'json', 
 					contentType: "application/json; charset=utf-8",
-					success: function(resp) { mc.mce_success_cb(formEl, resp); }
+					success: function(resp) { mc.mce_success_cb(validator, formEl, resp); }
 				});
 			}
 		});

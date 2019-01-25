@@ -19,6 +19,7 @@ const Hero: React.SFC<Props> = ({ title, subtitle, cta, image, backgroundImage }
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
+    background-attachment: fixed;
   `;
 
   return (
@@ -29,7 +30,7 @@ const Hero: React.SFC<Props> = ({ title, subtitle, cta, image, backgroundImage }
             <div className="col-lg-6 pr-0">
               <h2>{title}</h2>
               <p>{subtitle}</p>
-              <a href={cta.target} className="site-btn ghost">{cta.text}</a>
+              <a href={cta.target} className="site-btn sb-line">{cta.text}</a>
             </div>
           </div>
           {

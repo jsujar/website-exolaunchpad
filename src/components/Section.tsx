@@ -1,13 +1,13 @@
 import * as React from 'react';
 
 interface Props {
+  className?: string;
   children?: React.ReactNode;
 }
 
-const Section: React.SFC<Props> = ({ children }) => {
-
+const Section: React.SFC<Props> = ({ className, children }) => {
   return (
-    <section className="about-section spad">
+    <section className={className}>
       <div className="container">
         {children}
       </div>

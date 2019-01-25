@@ -2,13 +2,72 @@ import * as React from 'react';
 import serialize from 'form-serialize';
 import jsonp from 'jsonp';
 
-class LeaderForm extends React.Component {
-  onSubmit = (event: any) => {
-    event.preventDefault();
-    // jsonp()
+const groups = {
+  leaders: 2,
+  launchpad: 1,
+  movement: 4
+};
+
+const MC = {
+  endpoint: 'https://exodevhub.us20.list-manage.com/subscribe/post-json',
+  user: 'ccfff1ccf7951d4ec0af22cac',
+  id: '8ca8438865',
+  messages: {
+    success: 'Thanks for joining our community',
+    error: 'Error'
+  }
+};
+
+interface Props {
+  labels: {
+    required: string;
+    email: string;
+    location: string;
+    linkedin: string;
 
   }
+  children?: React.ReactNode;
+  title?: string;
+  tagline?: string;
+  icon?: string;
+  backgroundImage?: string;
+}
+
+class LaunchpadForm<Props> extends React.Component {
+  state = {
+    complete: false,
+    error: false,
+    message: ''
+  };
+
+  onSubmit = (event: any) => {
+    event.preventDefault();
+    const params = {
+      ...serialize(event.target, { hash: true }),
+      u: MC.user,
+      id: MC.id,
+      param: 'c'
+    };
+
+    jsonp(MC.endpoint, params, (err, data)=> {
+      const complete = (data && data.result === 'success');
+      const error = !complete;
+      const message = complete
+        ? MC.messages.success
+        : (data && data.msg) || err || MC.messages.error;
+      this.setState({ complete, error, message });
+    })
+  }
   render() {
+    if (this.state.complete) {
+      return (
+        <div className="domain-form-warp center">
+          <div id="mc_embed_signup">
+            <h3>{this.state.message}</h3>
+          </div>
+        </div>
+      )
+    }
     return (
       <div className="domain-form-warp">
         <div id="mc_embed_signup">
@@ -41,14 +100,19 @@ class LeaderForm extends React.Component {
               </div>
               <div className="mc-field-group input-group">
                 <strong>Join the general ExO Movement email list </strong>
+                {/*  */}
+                <input type="hidden" value={groups.leaders} name={`group[189][${groups.leaders}]`} id="mce-group[189]-189-0" />
                 <div className="checkbox">
-                  <input type="checkbox" value="4" name="group[189][4]" id="mce-group[189]-189-2" />
-                  <label htmlFor="mce-group[189]-189-2">ExOMovement</label>
+                  <input type="checkbox" value={groups.movement} name={`group[189][${groups.movement}]`} id="mce-group[189]-189-1" />
+                  <label htmlFor="mce-group[189]-189-2">ExO Movement</label>
                 </div>
               </div>
+
               <div id="mce-responses" className="clear">
-                <div className="response" id="mce-error-response" style={{ display: 'none' }}></div>
-                <div className="response" id="mce-success-response" style={{ display: 'none' }}></div>
+                {this.state.error ? <div className="response" id="mce-error-response"
+                  dangerouslySetInnerHTML={{ __html: this.state.message }}
+                /> : undefined}
+
               </div>
               <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
                 <input type="text" name="b_ccfff1ccf7951d4ec0af22cac_8ca8438865" defaultValue="" />
@@ -64,5 +128,4 @@ class LeaderForm extends React.Component {
   }
 }
 
-export default LeaderForm;
-
+export default LaunchpadForm;

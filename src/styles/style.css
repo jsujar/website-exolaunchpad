@@ -184,19 +184,19 @@ ol {
 	line-height: 1;
 	cursor: pointer;
 	text-align: center;
+	transition: all ease 0.3s;
 }
 .site-btn.ghost {
 	border: 1px solid #fff;
 }
 .site-btn:hover {
-	color: #fff;
+	opacity: 0.5;
 }
 
 .site-btn.sb-line {
 	background-color: transparent;
-	color: #eb2b63;
-	-webkit-box-shadow: inset 0 0 0 2px #eb2b63;
-	box-shadow: inset 0 0 0 2px #eb2b63;
+	color: #fff;
+	border: 1px solid #fff;
 }
 
 /* Preloder */
@@ -1791,3 +1791,30 @@ ol {
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	#mc_embed_signup .asterisk {color:#ff7072; }
 }
+
+/* exo stylys */
+.exo-hero-bg {
+	background-image: url(../img/exo/bg-55.png);
+	background-attachment: fixed;
+}
+
+.exo-feature-icon {
+	width: 100px;
+	margin-bottom: 30px;
+}
+
+.exo-footer {
+	padding: 50px 0;
+	background-image: url(../img/exo/bg-6.png);
+	text-align: center;
+}
+	.exo-footer .footer-widget li {
+		display: inline-block;
+		padding: 0 20px;
+	}
+		.exo-footer .footer-widget li a {
+			opacity: 1;
+		}
+	.exo-footer .copyright {
+		float: none;
+	}

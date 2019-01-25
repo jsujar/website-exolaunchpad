@@ -3,106 +3,89 @@ import * as React from 'react';
 // components
 import Page from '../components/Page';
 import Hero from '../components/Hero';
+import About from '../components/About';
+import Application from '../components/forms/LaunchpadForm';
 import Footer from '../components/Footer';
-import Section from '../components/Section';
-import HighlightSection from '../components/HighlightSection';
 import IndexLayout from '../layouts';
-import LeaderForm from '../components/forms/LeaderForm';
-import LaunchPadClient from '../components/forms/LaunchPadClient';
-import LaunchPadLeader from '../components/forms/LaunchPadLeader';
 
 // assets
 import '../styles/bootstrap.css';
 import '../styles/style.css';
 
-import * as sectionIcon from '../img/section-title-icon.png';
-import * as sectionBg from '../img/bg-61.png';
 import * as rocket from '../img/rocket.png';
-import * as formBg from '../img/bg.png';
-import * as dreamerImage from '../img/dreamer.png';
-import * as heroImage from '../img/bg.jpg';
-import * as starsBg from '../img/stars-bg.jpg';
+import * as heroImage from '../img/exo/bg-55.png';
 
 
 // data
-const dummyText = `Nullam lacinia ex eleifend orci porttitor, suscipit interdum augue condimentum. Etiam pretium turpis eget nibh laoreet iaculis. Vivamus auctor mi eget odio feugiat, quis aliquet velit ornare. Integer egestas sit amet neque sed elementum.`
-const headerDescription = `Launchpad helps you build a new type of organization, an ExO or Exponential Organization.An ExO is a purpose-driven venture that leverages exponential technologies and a set of common attributes to grow and transform the world`;
-interface State {
-  style: {
-    opacity: number;
-  }
-};
-class IndexPage extends React.Component<any, State> {
-  state: State = {
-    style: {
-      opacity: 0
+const DATA = {
+  en: {
+    hero: {
+      title: 'ExO Launchpad',
+      description: 'Launchpad helps you build a new type of organization, an ExO or Exponential Organization. An ExO is a purpose-driven venture that leverages exponential technologies and a set of common attributes to grow and transform the world.',
+      btnLabel: 'Join the Community',
+    },
+    about: {
+      features: [
+        {
+          title: 'What is Launchpad?',
+          description: () => 'The ExO Launchpad is a 5-day program that helps both innovators with a new idea and entrepreneurs with an early-stage startup to rapidly realize your vision.'
+        },
+        {
+          title: 'Who is developping?',
+          description: () => <>
+            <a target="_blank" href="http://http://franciscopalao.com/">Francisco Palao</a> and <a target="_blank" href="http://www.salimismail.com/">Salim Ismail</a> are developing the ExO Launchpad with a global group of ExO practitioners and entrepreneurs around the world. Their previous book, <a href="http://www.exponentialtransformationbook.com/">TheExponentialTransformation</a>, is being adapted for education and entrepreneurship to help you launch quickly.
+          </>
+        },
+        {
+          title: 'Why you need this?',
+          description: () => 'ExO Launchpad includes a number of our open tools and resources: ExO canvas, tools and methods allow anyone to tap into abundance and to manage it to scale exponentially as we deliver you educational resources, field experts and tools to help you build great exponential organizations.'
+        }
+      ]
+    },
+    application: {
+      title: 'Do you want to join the collaborator community to build the ExO Launchpad?',
+      fields: [
+        {
+          label: ''
+        }
+      ],
+      messages: {
+        success: '',
+        error: ''
+      }
+    },
+    footer: {
+      links: [
+        { text: 'Exponential Organizations', url: 'https://www.exponentialorgs.com/' },
+        { text: 'Exponential Transformation', url: 'https://www.exponentialtransformationbook.com/' },
+        { text: 'ExO Canvas', url: 'https://www.exocanvas.com/' },
+        { text: 'OpenExO', url: 'https://www.exolever.com/' },
+      ],
+      copyright: (year = new Date().getFullYear()) =>
+        <>
+          Building Exponential Organizations - OpenExO® {year} <br /> <small>Copyright &copy; {year} All rights reserved</small>
+        </>
     }
   }
+};
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({ style: { opacity: 1 } })
-    }, 200);
-  }
-
+class IndexPage extends React.Component<null, null> {
   render() {
     return (
-
       <IndexLayout>
-        <style>{`body { opacity: ${this.state.style.opacity}; } `}</style>
         <Page>
           <Hero
-            title="ExO Leaders"
-            subtitle={headerDescription}
+            title={DATA.en.hero.title}
+            subtitle={DATA.en.hero.description}
             backgroundImage={heroImage}
             image={rocket}
-            cta={{ text: 'Join the Community', target: '#' }}
+            cta={{ text: DATA.en.hero.btnLabel, target: '#' }}
           />
-
-          <Section>
-            <div className="row">
-              <div className="col-lg-6 about-text">
-                <h3>Why choose our company?</h3>
-                <p>{dummyText}</p>
-              </div>
-              <div className="col-lg-6">
-                <img src={dreamerImage} alt="" />
-              </div>
-            </div>
-          </Section>
-
-          <HighlightSection icon={sectionIcon} title="Become a student" tagline="" backgroundImage={formBg}>
-            <LaunchPadClient />
-          </HighlightSection>
-
-          <HighlightSection icon={sectionIcon} title="Become a leader" tagline="" backgroundImage={starsBg}>
-            <LaunchPadLeader />
-          </HighlightSection>
-
-          <Section>
-            <div className="row">
-              <div className="col-lg-6 about-text">
-                <h3>Why choose our company?</h3>
-                <p>{dummyText}</p>
-              </div>
-              <div className="col-lg-6">
-                <img src={dreamerImage} alt="" />
-              </div>
-            </div>
-          </Section>
-
-          <HighlightSection icon={sectionIcon} title="See our features" tagline="We are so cool" backgroundImage={sectionBg}>
-            <div className="domain-form-warp">
-              <form className="domain-search-form  df-white-bg">
-                <input type="text" placeholder="Enter your website’s name" />
-                <button className="site-btn ghost">Search</button>
-              </form>
-              <p>{dummyText}</p>
-            </div>
-          </HighlightSection>
-
-          <Footer links={[{ text: 'Link A', url: '/a' }, { text: 'Link B', url: '/b' }]} />
+          <About content={DATA.en.about.features} />
+          {/* <Application /> */}
+          <Footer links={DATA.en.footer.links} copyright={DATA.en.footer.copyright} />
         </Page>
+        <style>{`body { opacity: 1 }`}</style>
       </IndexLayout>
     )
   }

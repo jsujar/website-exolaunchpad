@@ -1,14 +1,16 @@
-'use strict'
+'use strict';
+
+const siteUrl = 'https://explaunchpad.com/'
 
 module.exports = {
   siteMetadata: {
-    title: 'gatsby-starter-typescript-plus',
-    description: 'A starter kit for TypeScript-based Gatsby projects with sensible defaults.',
-    siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com',
+    title: 'ExO Launchpad',
+    description: 'Launchpad helps you build a new type of organization, an ExO or Exponential Organization. An ExO is a purpose-driven venture that leverages exponential technologies and a set of common attributes to grow and transform the world.',
+    siteUrl: siteUrl,
     author: {
-      name: 'Resi Respati',
-      url: 'https://twitter.com/resir014',
-      email: 'resir014@gmail.com'
+      name: 'OpenExO',
+      url: siteUrl,
+      email: 'info@openexo.com'
     }
   },
   plugins: [
@@ -47,7 +49,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com'
+        siteUrl: siteUrl
       }
     },
     'gatsby-plugin-emotion',

@@ -85,7 +85,7 @@ class BaseForm extends React.Component<Props, State> {
       return (
         <div className="domain-form-warp center">
           <div className="mc_embed_signup">
-            <h3 style={{ textAlign: 'cetner' }}>{this.state.message}</h3>
+            <h3 style={{ textAlign: 'center' }}>{this.state.message}</h3>
           </div>
         </div>
       )

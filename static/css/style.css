@@ -1109,7 +1109,7 @@ ol {
 }
 
 .about-text {
-	padding-top: 100px;
+	padding-top: 30px;
 }
 
 .about-text h3 {
@@ -1454,9 +1454,6 @@ ol {
 /* Medium screen : 992px. */
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-	.about-text {
-		padding-top: 30px;
-	}
 	.hero-rocket {
 		width: 500px;
 	}
@@ -1520,7 +1517,6 @@ ol {
 		margin-top: 20px;
 	}
 	.about-text {
-		padding-top: 50px;
 		margin-bottom: 40px;
 	}
 	.milestones-top-text {
@@ -1641,7 +1637,6 @@ ol {
 		margin-top: 20px;
 	}
 	.about-text {
-		padding-top: 50px;
 		margin-bottom: 40px;
 	}
 	.milestones-top-text {

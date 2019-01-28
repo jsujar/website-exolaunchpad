@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 
 interface Props {
-  title: string;
   subtitle?: string;
   cta: {
     text: string;
@@ -28,7 +27,7 @@ const Hero: React.SFC<Props> = ({ title, subtitle, cta, image, backgroundImage }
         <div className="hero-content text-white">
           <div className="row">
             <div className="col-lg-6">
-              <h1><img src="logo.svg" /></h1>
+              <h1><img src="/imgs/social/logo.svg" /></h1>
               <p>{subtitle}</p>
               <a href={cta.target} className="site-btn sb-line">{cta.text}</a>
             </div>

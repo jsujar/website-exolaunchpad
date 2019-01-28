@@ -13,7 +13,6 @@ import IndexLayout from '../layouts';
 const DATA = {
   en: {
     hero: {
-      title: config.siteMetadata.title,
       description: config.siteMetadata.description,
       btnLabel: 'Join the Community',
     },
@@ -88,7 +87,6 @@ class IndexPage extends React.Component<null, null> {
       <IndexLayout>
         <Page>
           <Hero
-            title={hero.title}
             subtitle={hero.description}
             backgroundImage="/imgs/bg_hero.jpg"
             image="/imgs/rocket.png"

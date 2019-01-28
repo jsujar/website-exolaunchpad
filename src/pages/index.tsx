@@ -24,7 +24,7 @@ const DATA = {
           image: require('../img/exo/feature-1.jpg')
         },
         {
-          title: 'Who is developping ExO Launchpad?',
+          title: 'Who is developing ExO Launchpad?',
           description: () => <>
             <a target="_blank" href="https://franciscopalao.com/">Francisco Palao</a> and <a target="_blank" href="http://www.salimismail.com/">Salim Ismail</a> are developing the ExO Launchpad with a global group of ExO practitioners and entrepreneurs around the world. Their previous book, <a href="http://www.exponentialtransformationbook.com/">TheExponentialTransformation</a>, is being adapted for education and entrepreneurship to help you launch quickly.
           </>,

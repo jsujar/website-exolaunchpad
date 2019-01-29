@@ -101,9 +101,9 @@ class BaseForm extends React.Component<Props, State> {
             onSubmit={this.onSubmit}
           >
             <div className="mc_embed_signup_scroll">
-              <div className="indicates-required"><span className="asterisk">*</span>{labels.required}</div>
               <div className="mc-field-group">
-                <label htmlFor={`mce-EMAIL-${this.id}`}>{labels.email}<span className="asterisk">*</span></label>
+                <div className="indicates-required"><span className="asterisk">*</span>&nbsp;{labels.required}</div>
+                <label htmlFor={`mce-EMAIL-${this.id}`}>{labels.email}&nbsp;<span className="asterisk">*</span></label>
                 <input type="email" defaultValue="" name="EMAIL" id={`mce-EMAIL-${this.id}`} required />
               </div>
               {enableName &&

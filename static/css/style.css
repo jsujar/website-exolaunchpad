@@ -728,16 +728,24 @@ ol {
 	margin-bottom: 15px;
 }
 
+.domain-search-form label {
+	font-weight: bold;
+}
+
 .domain-search-form input {
-	width: calc(100% - 239px);
-	height: 59px;
-	font-size: 14px;
+	width: 100%;
+	height: 42px;
+	font-size: 18px;
 	border: none;
-	background: #fff;
-	border-radius: 14px;
-	display: inline-block;
-	padding: 0 31px;
-	margin-right: 5px;
+	background: #ffd4d4;
+	border-radius: 8px;
+	display: block;
+	padding: 0 10px;
+	color: #333;
+}
+
+.domain-search-form input[type="checkbox"] {
+	margin-right: 10px;
 }
 
 .domain-search-form .site-btn {
@@ -1710,8 +1718,8 @@ ol {
 .mc_embed_signup .mc-field-group {clear:left; position:relative; padding-bottom:3%; min-height:50px;}
 .mc_embed_signup .size1of2 {clear:none; float:left; display:inline-block; width:46%; margin-right:4%;}
 * html .mc_embed_signup .size1of2 {margin-right:2%; /* Fix for IE6 double margins. */}
-.mc_embed_signup .mc-field-group label {display:block; margin-bottom:3px; line-height: 1em;}
-.mc_embed_signup .mc-field-group input {display:block; width:100%; margin-top:16px; padding:8px 0; text-indent:2%; border-radius: 30px;}
+.mc_embed_signup .mc-field-group label {display:block; margin-bottom:8px; line-height: 1em;}
+/* .mc_embed_signup .mc-field-group input {display:block; width:100%; margin-top:16px; padding:8px 0; text-indent:2%; border-radius: 30px;} */
 .mc_embed_signup .mc-field-group select {display:inline-block; width:99%; padding:5px 0; margin-bottom:2px;}
 
 .mc_embed_signup .datefield, .mc_embed_signup .phonefield-us{padding:5px 0;}
@@ -1720,7 +1728,7 @@ ol {
 .mc_embed_signup .datefield .monthfield input, .mc_embed_signup .datefield .dayfield input{width:30px;}
 .mc_embed_signup .datefield label, .mc_embed_signup .phonefield-us label{display:none;}
 
-.mc_embed_signup .indicates-required {text-align:right; font-size:11px; margin-right:4%;}
+.mc_embed_signup .indicates-required {float:right; font-size:11px;}
 .mc_embed_signup .asterisk {color:#500e5d; font-size:150%; font-weight:normal; position:relative; top:5px;}
 .mc_embed_signup .clear {clear:both; text-align: center;}
 

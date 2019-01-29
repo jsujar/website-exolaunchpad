@@ -1,6 +1,7 @@
 import * as React from 'react';
 import serialize from 'form-serialize';
 import jsonp from 'jsonp';
+import styled from '@emotion/styled';
 import Checkbox from './Checkbox';
 
 const MC = {
@@ -56,6 +57,11 @@ const getId = (() => {
 
 const getMsg = (msg: string) => /^\d \-/.test(msg) ? msg.split('-')[1] : msg;
 
+const Message = styled.div`
+  text-align: center;
+  font-size: 30px;
+`;
+
 class BaseForm extends React.Component<Props, State> {
   id = getId();
 
@@ -87,7 +93,7 @@ class BaseForm extends React.Component<Props, State> {
       return (
         <div className="domain-form-warp center">
           <div className="mc_embed_signup">
-            <h3 style={{ textAlign: 'center' }}>{this.state.message}</h3>
+            <Message>{this.state.message}</Message>
           </div>
         </div>
       )
@@ -138,9 +144,7 @@ class BaseForm extends React.Component<Props, State> {
                   )}
                 </div>}
               {this.state.message &&
-                <div className="mce-responses clear">
-                  <div>{this.state.message}</div>
-                </div>}
+                <div className="mce-responses clear" dangerouslySetInnerHTML={{ __html: this.state.message }} />}
               <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
                 <input type="text" name={`b_${MC.user}_${MC.id}`} value="" readOnly />
                 <input type="hidden" name="u" value={MC.user} readOnly />

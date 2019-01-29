@@ -56,8 +56,8 @@ const DATA = {
         }
       },
       messages: {
-        success: 'Thanks for joining our community',
-        error: 'Please try it later, again'
+        success: 'Thanks for joining our community!',
+        error: 'Please try it later, again.'
       }
     },
     students: {
@@ -100,20 +100,20 @@ class IndexPage extends React.Component<null, null> {
           <About content={about.features.slice(0, 2)} />
           <div id="mailinglist">
             <StudentForm
-              title={students.title}
+              title={students.title()}
               labels={form.labels}
               fields={form.fields}
               messages={form.messages}
             />
             <About content={about.features.slice(-1)} />
             <CollaboratorForm
-              title={collaborators.title}
+              title={collaborators.title()}
               labels={form.labels}
               fields={form.fields}
               messages={form.messages}
             />
           </div>
-          <Footer links={footer.links} copyright={footer.copyright} credit={footer.credit} />
+          <Footer links={footer.links} copyright={footer.copyright()} credit={footer.credit()} />
         </Page>
         <style>
           {`

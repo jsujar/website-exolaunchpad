@@ -2,8 +2,8 @@ import * as React from 'react';
 
 interface Props {
   links?: Array<{ text: string; url: string }>;
-  copyright: Function;
-  credit: Function;
+  copyright: any;
+  credit: any;
 }
 
 const Footer: React.SFC<Props> = ({ links = [], copyright, credit }) =>
@@ -17,8 +17,8 @@ const Footer: React.SFC<Props> = ({ links = [], copyright, credit }) =>
       </ul>
     </div>
     <div className="container">
-      <div className="copyright">{copyright()}</div>
-      <small className="copyright love">{credit()}</small>
+      <div className="copyright">{copyright}</div>
+      <small className="copyright love">{credit}</small>
     </div>
   </footer>;
 

@@ -1,12 +1,8 @@
 {
   "name": "website-exolaunchpad",
-  "version": 2
-}
-{
-  "name": "website-exolaunchpad",
   "alias": [
     "exolaunchpad.com",
-    "www.exolaunchpad.com",
+    "www.exolaunchpad.com"
   ],
   "github": {
     "enabled": true,

@@ -1,6 +1,6 @@
 'use strict';
 
-const siteUrl = 'https://explaunchpad.com/'
+const siteUrl = 'https://www.exolaunchpad.com/'
 
 module.exports = {
   siteMetadata: {

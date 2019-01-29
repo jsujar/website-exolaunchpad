@@ -30,6 +30,7 @@ export default class HTML extends React.Component {
           <meta property="og:image" content={config.siteMetadata.image} />
           <meta property="og:title" content={config.siteMetadata.title} />
           <meta property="og:type" content="website" />
+          <meta property="og:url" content={config.siteMetadata.siteUrl} />
           <meta itemprop="name" content={config.siteMetadata.title} />
           <meta itemprop="url" content={config.siteMetadata.siteUrl} />
           <meta itemprop="description" content={config.siteMetadata.description} />

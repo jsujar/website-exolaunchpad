@@ -625,15 +625,6 @@ ol {
 	margin: 40px 0;
 }
 
-.hero-rocket {
-	position: relative;
-}
-
-.hero-rocket img {
-	position: absolute;
-	top: 90px;
-}
-
 @-webkit-keyframes rocket {
 	0% {
 		left: 0;

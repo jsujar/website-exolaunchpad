@@ -1099,7 +1099,9 @@ ol {
 /* ----------------
   About Page
 ---------------------*/
-
+.about-section {
+	text-align: center;
+}
 .sc-about-page {
 	padding-top: 95px;
 	padding-bottom: 74px;

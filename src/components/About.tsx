@@ -14,7 +14,7 @@ interface Props {
 
 const Vertical = ({ title, description, image, column }) =>
   <div className={`col-lg-${column}`}>
-    <img src={image} alt={title} />
+    <img src={image} alt={title} width="200" />
     <div className="about-text">
       <h3>{title}</h3>
       <p>{description()}</p>
@@ -35,7 +35,7 @@ const Horizontal = ({ title, description, image }) =>
 const About: React.SFC<Props> = ({ content }) => {
   const column = Math.floor(12 / content.length);
   return (
-    <Section className="spad">
+    <Section className="spad about-section">
       <div className="row">
       {content.map(({ title, description, horizontal, image }) => {
         const props = { title, description, image, column };

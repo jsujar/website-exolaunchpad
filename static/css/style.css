@@ -1102,6 +1102,7 @@ ol {
 .about-section {
 	text-align: center;
 }
+
 .sc-about-page {
 	padding-top: 95px;
 	padding-bottom: 74px;
@@ -1793,10 +1794,11 @@ ol {
 		display: inline-block;
 		padding: 0 20px;
 	}
-		.exo-footer .footer-widget li a,
-		.exo-footer .footer-widget li a:hover {
-			color: #fff;
-		}
+	.exo-footer a,
+	.exo-footer a:hover,
+	.exo-footer a:visited {
+		color: #fff;
+	}
 	.exo-footer .copyright {
 		float: none;
 	}

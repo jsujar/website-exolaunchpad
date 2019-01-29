@@ -45,7 +45,7 @@ const DATA = {
         email: 'Email Address',
         name: 'Name',
         location: 'Preferred Location of Summit/Workshop',
-        linkedIn: 'Linked in URL',
+        linkedIn: 'LinkedIn URL',
         button: 'Subscribe'
       },
       fields: {

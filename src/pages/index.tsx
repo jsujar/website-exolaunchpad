@@ -13,6 +13,7 @@ import IndexLayout from '../layouts';
 const DATA = {
   en: {
     hero: {
+      title: config.siteMetadata.title,
       description: config.siteMetadata.description,
       btnLabel: 'Join the Community',
     },
@@ -75,6 +76,10 @@ const DATA = {
       copyright: (year = new Date().getFullYear()) =>
         <>
           Building Exponential Organizations - OpenExO® {year} <br /> <small>Copyright &copy; {year} All rights reserved</small>
+        </>,
+      credit: () =>
+        <>
+          Made with ❤ by <a target="_blank" href="https://www.exodevhub.com/">exodevhub</a>
         </>
     }
   }
@@ -87,6 +92,7 @@ class IndexPage extends React.Component<null, null> {
       <IndexLayout>
         <Page>
           <Hero
+            title={hero.title}
             subtitle={hero.description}
             backgroundImage="/imgs/bg_hero.jpg"
             image="/imgs/rocket.png"
@@ -108,9 +114,16 @@ class IndexPage extends React.Component<null, null> {
               messages={form.messages}
             />
           </div>
-          <Footer links={footer.links} copyright={footer.copyright} />
+          <Footer links={footer.links} copyright={footer.copyright} credit={footer.credit} />
         </Page>
-        <style>{`body { opacity: 1 }`}</style>
+        <style>
+          {`
+            body {
+              transition: opacity ease 0.5s;
+              opacity: 1;
+            }
+          `}
+        </style>
       </IndexLayout>
     )
   }

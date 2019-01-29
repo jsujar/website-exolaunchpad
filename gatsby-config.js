@@ -7,6 +7,7 @@ module.exports = {
     title: 'ExO Launchpad',
     description: 'Launchpad helps you build a new type of organization, an ExO or Exponential Organization. An ExO is a purpose-driven venture that leverages exponential technologies and a set of common attributes to grow and transform the world.',
     siteUrl: siteUrl,
+    image: `${siteUrl}imgs/social/banner.png`,
     author: {
       name: 'OpenExO',
       url: siteUrl,

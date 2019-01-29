@@ -626,15 +626,12 @@ ol {
 }
 
 .hero-rocket {
-	position: absolute;
-	bottom: 8px;
-	right: -198px;
+	position: relative;
 }
 
 .hero-rocket img {
-	position: relative;
-	/* -webkit-animation: rocket 5s ease-out infinite;
-	animation: rocket 5s ease-out infinite; */
+	position: absolute;
+	top: 90px;
 }
 
 @-webkit-keyframes rocket {
@@ -1794,8 +1791,9 @@ ol {
 		display: inline-block;
 		padding: 0 20px;
 	}
-		.exo-footer .footer-widget li a {
-			opacity: 1;
+		.exo-footer .footer-widget li a,
+		.exo-footer .footer-widget li a:hover {
+			color: #fff;
 		}
 	.exo-footer .copyright {
 		float: none;

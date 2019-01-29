@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 
 interface Props {
+  title: string;
   subtitle?: string;
   cta: {
     text: string;
@@ -14,7 +15,8 @@ interface Props {
 const Hero: React.SFC<Props> = ({ title, subtitle, cta, image, backgroundImage }) => {
 
   const ContainerWithBackgroundImage = styled.section`
-    background: url(${backgroundImage});
+    background-image: url(${backgroundImage});
+    background-color: #3DA8E0;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
@@ -26,18 +28,15 @@ const Hero: React.SFC<Props> = ({ title, subtitle, cta, image, backgroundImage }
       <div className="container h-100">
         <div className="hero-content text-white">
           <div className="row">
-            <div className="col-lg-6">
-              <h1><img src="/imgs/social/logo.svg" /></h1>
+            <div className="col-lg-8">
+              <h1><img src="/imgs/social/logo.svg" alt={title} /></h1>
               <p>{subtitle}</p>
               <a href={cta.target} className="site-btn sb-line">{cta.text}</a>
             </div>
+            <div className="col-lg-4 hero-rocket">
+              <img src={image} alt={title} />
+            </div>
           </div>
-          {
-            image ?
-              <div className="hero-rocket">
-                <img src={image} alt="" />
-              </div> : null
-          }
         </div>
       </div>
     </ContainerWithBackgroundImage>

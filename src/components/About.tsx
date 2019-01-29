@@ -14,7 +14,7 @@ interface Props {
 
 const Vertical = ({ title, description, image, column }) =>
   <div className={`col-lg-${column}`}>
-    <img src={image} alt="" />
+    <img src={image} alt={title} />
     <div className="about-text">
       <h3>{title}</h3>
       <p>{description()}</p>
@@ -24,7 +24,7 @@ const Vertical = ({ title, description, image, column }) =>
 const Horizontal = ({ title, description, image }) =>
   <>
     <div className="col-lg-6">
-      <img src={image} alt=""/>
+      <img src={image} alt={title} />
     </div>
     <div className="col-lg-6 about-text">
       <h3>{title}</h3>

@@ -11,7 +11,7 @@ interface Props {
 
 const CollaboratorForm: React.SFC<Props> = ({ title, labels, fields, messages }) => {
   return (
-    <HighlightSection title={title()} backgroundImage="/imgs/bg_form.png">
+    <HighlightSection title={title()} backgroundImage="/imgs/bg_form.jpg">
       <Form
         labels={labels}
         messages={messages}

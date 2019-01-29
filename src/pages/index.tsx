@@ -50,9 +50,9 @@ const DATA = {
       },
       fields: {
         groups: {
-          movement: { id: 4, label: 'Join the general ExO Movement email list' }, 
-          launchpadStudents: { id: 8, hidden: true }, 
-          launchpadCollaborators: { id:1, hidden: true} 
+          movement: { id: 4, label: 'Join the general ExO Movement email list' },
+          launchpadStudents: { id: 8, hidden: true },
+          launchpadCollaborators: { id:1, hidden: true}
         }
       },
       messages: {

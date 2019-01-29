@@ -1771,7 +1771,7 @@ ol {
 
 /* exo stylys */
 .exo-hero-bg {
-	background-image: url(/imgs/bg_hero.png);
+	background-image: url(/imgs/bg_hero.jpg);
 	background-attachment: fixed;
 }
 
@@ -1782,7 +1782,7 @@ ol {
 
 .exo-footer {
 	padding: 50px 0;
-	background-image: url(/imgs/bg_footer.png);
+	background-image: url(/imgs/bg_footer.jpg);
 	text-align: center;
 }
 	.exo-footer .core-logo {

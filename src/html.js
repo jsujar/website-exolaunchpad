@@ -17,6 +17,7 @@ export default class HTML extends React.Component {
           </style>
           <title>{config.siteMetadata.title}</title>
           <meta charSet="utf-8" />
+          <meta http-equiv="Cache-control" content="public" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta
             name="viewport"
@@ -40,7 +41,7 @@ export default class HTML extends React.Component {
           <meta name="twitter:image" content={config.siteMetadata.image} />
           <meta name="twitter:url" content={config.siteMetadata.siteUrl} />
           <meta name="twitter:card" content="summary"/>
-          <meta name="twitter:description" content={config.siteMetadata.description} /> 
+          <meta name="twitter:description" content={config.siteMetadata.description} />
           <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
           <link rel="stylesheet" href="/css/bootstrap.css" preload="true" />
           <link rel="stylesheet" href="/css/style.css" preload="true" />

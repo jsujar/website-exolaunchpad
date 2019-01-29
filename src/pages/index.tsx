@@ -45,7 +45,7 @@ const DATA = {
         email: 'Email Address',
         name: 'Name',
         location: 'Preferred Location of Summit/Workshop',
-        linkedIn: 'Linked in URL',
+        linkedIn: 'LinkedIn URL',
         button: 'Subscribe'
       },
       fields: {
@@ -74,11 +74,11 @@ const DATA = {
       ],
       copyright: (year = new Date().getFullYear()) =>
         <>
-          Building Exponential Organizations - OpenExO® {year} <br /> <small>Copyright &copy; {year} All rights reserved</small>
+          Building Exponential Organizations - OpenExO ® {year} <br /> <small>Copyright &copy; {year} All rights reserved</small>
         </>,
       credit: () =>
         <>
-          Made with ❤ by <a target="_blank" href="https://www.exodevhub.com/">exodevhub</a>
+          Made with ❤ by <a target="_blank" href="https://www.exodevhub.com/">ExO DevHub</a>
         </>
     }
   }

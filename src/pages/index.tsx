@@ -57,7 +57,7 @@ const DATA = {
       },
       messages: {
         success: 'Thanks for joining our community',
-        error: 'Error'
+        error: 'Please try it later, again'
       }
     },
     students: {

@@ -9,7 +9,7 @@ interface Props {
   messages: any;
 }
 
-const Application: React.SFC<Props> = ({ title, labels, fields, messages }) => {
+const CollaboratorForm: React.SFC<Props> = ({ title, labels, fields, messages }) => {
   return (
     <HighlightSection title={title()} backgroundImage="/imgs/bg_form.jpg">
       <Form
@@ -23,4 +23,4 @@ const Application: React.SFC<Props> = ({ title, labels, fields, messages }) => {
   )
 };
 
-export default Application;
+export default CollaboratorForm;

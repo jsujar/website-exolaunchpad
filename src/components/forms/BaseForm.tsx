@@ -1,7 +1,7 @@
 import * as React from 'react';
 import serialize from 'form-serialize';
 import jsonp from 'jsonp';
-
+import Checkbox from './Checkbox';
 
 const MC = {
   endpoint: 'https://exodevhub.us20.list-manage.com/subscribe/post-json',
@@ -54,6 +54,8 @@ const getId = (() => {
   };
 })();
 
+const getMsg = (msg: string) => /^\d \-/.test(msg) ? msg.split('-')[1] : msg;
+
 class BaseForm extends React.Component<Props, State> {
   id = getId();
 
@@ -71,7 +73,7 @@ class BaseForm extends React.Component<Props, State> {
       const complete = (data && data.result === 'success');
       const message = complete
         ? messages.success
-        : `Error: ${(data && data.msg.split('-')[1]) || err || messages.error}`;
+        : `Error: ${(data && getMsg(data.msg)) || messages.error}`;
       this.setState({ complete, message });
     })
   }
@@ -101,9 +103,9 @@ class BaseForm extends React.Component<Props, State> {
             onSubmit={this.onSubmit}
           >
             <div className="mc_embed_signup_scroll">
-              <div className="indicates-required"><span className="asterisk">*</span>{labels.required}</div>
               <div className="mc-field-group">
-                <label htmlFor={`mce-EMAIL-${this.id}`}>{labels.email}<span className="asterisk">*</span></label>
+                <div className="indicates-required"><span className="asterisk">*</span>&nbsp;{labels.required}</div>
+                <label htmlFor={`mce-EMAIL-${this.id}`}>{labels.email}&nbsp;<span className="asterisk">*</span></label>
                 <input type="email" defaultValue="" name="EMAIL" id={`mce-EMAIL-${this.id}`} required />
               </div>
               {enableName &&
@@ -126,10 +128,13 @@ class BaseForm extends React.Component<Props, State> {
                   {hiddenGroups.map(group =>
                     <input key={group.id} type="hidden" value={group.id} name={`group[189][${group.id}]`} readOnly />)}
                   {visibleGroups.map(group =>
-                    <div key={group.id} className="checkbox">
-                      <input type="checkbox" value={group.id} name={`group[189][${group.id}]`} id={`mce-group[189][${group.id}]-${this.id}`} />
-                      <label htmlFor={`mce-group[189][${group.id}]-${this.id}`}>{group.label}</label>
-                    </div>
+                    <Checkbox
+                      key={group.id}
+                      id={`mce-group[189][${group.id}]-${this.id}`}
+                      name={`group[189][${group.id}]`}
+                      value={group.id}
+                      label={group.label}
+                    />
                   )}
                 </div>}
               {this.state.message &&

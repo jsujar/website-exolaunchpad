@@ -1730,25 +1730,3 @@ ol {
 	width: 100px;
 	margin-bottom: 30px;
 }
-
-.exo-footer {
-	padding: 50px 0;
-	background-image: url(/imgs/bg_footer.jpg);
-	text-align: center;
-}
-	.exo-footer .core-logo {
-		width: 180px;
-    margin: 24px 0px;
-	}
-	.exo-footer .footer-widget li {
-		display: inline-block;
-		padding: 0 20px;
-	}
-	.exo-footer a,
-	.exo-footer a:hover,
-	.exo-footer a:visited {
-		color: #fff;
-	}
-	.exo-footer .copyright {
-		float: none;
-	}

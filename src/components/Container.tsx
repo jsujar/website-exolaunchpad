@@ -1,15 +1,32 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-import { widths } from '../styles/variables';
-import { getEmSize } from '../styles/mixins';
+// TODO: user variables and mixins
+// import { widths } from '../styles/variables';
+// import { getEmSize } from '../styles/mixins';
 
 const StyledContainer = styled.div`
-  position: relative;
-  margin-left: auto;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
   margin-right: auto;
-  width: auto;
-  max-width: ${getEmSize(widths.lg)}em;
+  margin-left: auto;
+
+  @media (min-width: 576px)
+    max-width: 540px;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
 `;
 
 interface ContainerProps {

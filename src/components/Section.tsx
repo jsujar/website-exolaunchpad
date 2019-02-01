@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Container from "./Container";
 
 interface Props {
   className?: string;
@@ -8,9 +9,7 @@ interface Props {
 const Section: React.SFC<Props> = ({ className, children }) => {
   return (
     <section className={className}>
-      <div className="container">
-        {children}
-      </div>
+      <Container>{children}</Container>
     </section>
   )
 };

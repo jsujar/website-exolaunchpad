@@ -74,11 +74,9 @@ const DATA = {
       ],
       copyright: (year = new Date().getFullYear()) =>
         <>
-          Building Exponential Organizations - OpenExO ® {year} <br /> <small>Copyright &copy; {year} All rights reserved</small>
-        </>,
-      credit: () =>
-        <>
-          Made with ❤ by <a target="_blank" href="https://www.exodevhub.com/">ExO DevHub</a>
+          <span>Building Exponential Organizations - OpenExO<sub>®</sub> {year}</span>
+          <small>Copyright &copy; {year} All rights reserved</small>
+          <small>Made with ❤ by <a target="_blank" href="https://www.exodevhub.com/">ExO DevHub</a></small>
         </>
     }
   }
@@ -113,7 +111,13 @@ class IndexPage extends React.Component<null, null> {
               messages={form.messages}
             />
           </div>
-          <Footer links={footer.links} copyright={footer.copyright()} credit={footer.credit()} />
+          <Footer
+            logoImg="/imgs/social/openexo_logo_white.png"
+            logoUrl="https://www.exodevhub.com"
+            logoAlt="OpenExO"
+            links={footer.links}
+            copyright={footer.copyright()}
+          />
         </Page>
         <style>
           {`

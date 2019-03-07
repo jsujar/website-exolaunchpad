@@ -3,7 +3,7 @@ import HighlightSection from '../HighlightSection';
 import Form from './BaseForm';
 
 interface Props {
-  title: Function;
+  title: any;
   labels: any;
   fields: { groups: any };
   messages: any;
@@ -11,7 +11,7 @@ interface Props {
 
 const StudentForm: React.SFC<Props> = ({ title, labels, fields, messages }) => {
   return (
-    <HighlightSection title={title()} backgroundImage="/imgs/bg_form.jpg">
+    <HighlightSection title={title} backgroundImage="/imgs/bg_form.jpg">
       <Form
         labels={labels}
         messages={messages}

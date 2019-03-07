@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import Container from "./Container";
 
 interface Props {
   children?: React.ReactNode;
@@ -21,14 +22,14 @@ const HighlightSection: React.SFC<Props> = ({ title, tagline, icon, backgroundIm
 
   return (
     <BackgroundImage className="domain-search-section sc-about-page">
-      <div className="container">
+      <Container>
         <div className="section-title">
           <img src="/imgs/rocket.png" width="100" />
           <h2 className="text-white">{title}</h2>
           {tagline ? <p className="text-white">{tagline}</p> : null}
         </div>
         {children}
-      </div>
+      </Container>
     </BackgroundImage>
   )
 };

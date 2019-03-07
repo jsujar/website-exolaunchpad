@@ -56,8 +56,8 @@ const DATA = {
         }
       },
       messages: {
-        success: 'Thanks for joining our community',
-        error: 'Please try it later, again'
+        success: 'Thanks for joining our community!',
+        error: 'Please try it later, again.'
       }
     },
     students: {
@@ -74,11 +74,9 @@ const DATA = {
       ],
       copyright: (year = new Date().getFullYear()) =>
         <>
-          Building Exponential Organizations - OpenExO ® {year} <br /> <small>Copyright &copy; {year} All rights reserved</small>
-        </>,
-      credit: () =>
-        <>
-          Made with ❤ by <a target="_blank" href="https://www.exodevhub.com/">ExO DevHub</a>
+          <span>Building Exponential Organizations - OpenExO<sub>®</sub> {year}</span>
+          <small>Copyright &copy; {year} All rights reserved</small>
+          <small>Made with ❤ by <a target="_blank" href="https://www.exodevhub.com/">ExO DevHub</a></small>
         </>
     }
   }
@@ -100,20 +98,26 @@ class IndexPage extends React.Component<null, null> {
           <About content={about.features.slice(0, 2)} />
           <div id="mailinglist">
             <StudentForm
-              title={students.title}
+              title={students.title()}
               labels={form.labels}
               fields={form.fields}
               messages={form.messages}
             />
             <About content={about.features.slice(-1)} />
             <CollaboratorForm
-              title={collaborators.title}
+              title={collaborators.title()}
               labels={form.labels}
               fields={form.fields}
               messages={form.messages}
             />
           </div>
-          <Footer links={footer.links} copyright={footer.copyright} credit={footer.credit} />
+          <Footer
+            logoImg="/imgs/social/openexo_logo_white.png"
+            logoUrl="https://www.exodevhub.com"
+            logoAlt="OpenExO"
+            links={footer.links}
+            copyright={footer.copyright()}
+          />
         </Page>
         <style>
           {`

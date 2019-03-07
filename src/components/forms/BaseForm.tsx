@@ -1,12 +1,16 @@
 import * as React from 'react';
 import serialize from 'form-serialize';
 import jsonp from 'jsonp';
+import styled from '@emotion/styled';
 import Checkbox from './Checkbox';
+import TextField from './TextField';
+import Button from './Button';
 
 const MC = {
   endpoint: 'https://exodevhub.us20.list-manage.com/subscribe/post-json',
-  user: 'ccfff1ccf7951d4ec0af22cac',
-  id: '8ca8438865'
+  userId: 'ccfff1ccf7951d4ec0af22cac',
+  formId: '8ca8438865',
+  groupId: '189'
 };
 
 interface Labels {
@@ -37,6 +41,7 @@ interface Props {
   enableLocation?: boolean;
   enableLinkedIn?: boolean;
   enableGroups?: Group[];
+  groupTitle?: any;
 }
 
 interface State {
@@ -55,6 +60,51 @@ const getId = (() => {
 })();
 
 const getMsg = (msg: string) => /^\d \-/.test(msg) ? msg.split('-')[1] : msg;
+
+const Message = styled.div`
+  text-align: center;
+  font-size: 30px;
+`;
+
+const Group = styled.div`
+  margin-bottom: 20px;
+`;
+
+const Body = styled.div`
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 1em;
+`;
+
+const Required = styled.div`
+  &:before {
+    content: "*";
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+    color: #500e5d;
+    font-size: 150%;
+    font-weight: normal;
+  }
+`;
+
+const Header = styled.div`
+  position: absolute;
+  right: 0;
+  font-size: 12px;
+`;
+
+const Footer = styled.div`
+  margin-top: 40px;
+  text-align: center;
+`;
+
+const Form = styled.form`
+  display: block;
+  text-align: left;
+`;
 
 class BaseForm extends React.Component<Props, State> {
   id = getId();
@@ -79,81 +129,94 @@ class BaseForm extends React.Component<Props, State> {
   }
 
   render() {
-    const { labels, enableName, enableLocation, enableLinkedIn, enableGroups } = this.props;
+    const { labels, enableName, enableLocation, enableLinkedIn, enableGroups, groupTitle } = this.props;
     const visibleGroups = enableGroups ? enableGroups.filter(group => !group.hidden): [];
     const hiddenGroups = enableGroups ? enableGroups.filter(group => group.hidden): [];
 
     if (this.state.complete) {
       return (
-        <div className="domain-form-warp center">
-          <div className="mc_embed_signup">
-            <h3 style={{ textAlign: 'center' }}>{this.state.message}</h3>
-          </div>
-        </div>
-      )
+        <Body>
+          <Message>{this.state.message}</Message>
+        </Body>
+      );
     }
+
     return (
-      <div className="domain-form-warp">
-        <div className="mc_embed_signup">
-          <form
-            className="mc-embedded-subscribe-form domain-search-form validate"
-            method="post"
-            name="mc-embedded-subscribe-form"
-            target="_blank"
-            onSubmit={this.onSubmit}
-          >
-            <div className="mc_embed_signup_scroll">
-              <div className="mc-field-group">
-                <div className="indicates-required"><span className="asterisk">*</span>&nbsp;{labels.required}</div>
-                <label htmlFor={`mce-EMAIL-${this.id}`}>{labels.email}&nbsp;<span className="asterisk">*</span></label>
-                <input type="email" defaultValue="" name="EMAIL" id={`mce-EMAIL-${this.id}`} required />
-              </div>
-              {enableName &&
-                <div className="mc-field-group">
-                  <label htmlFor={`mce-NAME-${this.id}`}>{labels.name}</label>
-                  <input type="text" defaultValue="" name="NAME" id={`mce-NAME-${this.id}`} />
-                </div>}
-              {enableLocation &&
-                <div className="mc-field-group">
-                  <label htmlFor={`mce-LOCATION-${this.id}`}>{labels.location}</label>
-                  <input type="text" defaultValue="" name="LOCATION" id={`mce-LOCATION-${this.id}`} />
-                </div>}
-              {enableLinkedIn &&
-                <div className="mc-field-group">
-                  <label htmlFor={`mce-LINKEDIN-${this.id}`}>{labels.linkedIn}</label>
-                  <input type="text" defaultValue="" name="LINKEDIN" id={`mce-LINKEDIN-${this.id}`} />
-                </div>}
-              {enableGroups &&
-                <div className="mc-field-group input-group">
-                  {hiddenGroups.map(group =>
-                    <input key={group.id} type="hidden" value={group.id} name={`group[189][${group.id}]`} readOnly />)}
-                  {visibleGroups.map(group =>
-                    <Checkbox
-                      key={group.id}
-                      id={`mce-group[189][${group.id}]-${this.id}`}
-                      name={`group[189][${group.id}]`}
-                      value={group.id}
-                      label={group.label}
-                    />
-                  )}
-                </div>}
-              {this.state.message &&
-                <div className="mce-responses clear">
-                  <div>{this.state.message}</div>
-                </div>}
-              <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
-                <input type="text" name={`b_${MC.user}_${MC.id}`} value="" readOnly />
-                <input type="hidden" name="u" value={MC.user} readOnly />
-                <input type="hidden" name="id" value={MC.id} readOnly />
-              </div>
-              <div className="clear">
-                <button type="submit" name="subscribe" className="mc-embedded-subscribe site-btn sb-line">{labels.button}</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    )
+      <Body>
+        <Header>
+          <Required>{labels.required}</Required>
+        </Header>
+        <Form
+          method="post"
+          name="mc-embedded-subscribe-form"
+          target="_blank"
+          onSubmit={this.onSubmit}
+        >
+          <Group>
+            <TextField
+              id={`mce-EMAIL-${this.id}`}
+              type="email"
+              name="EMAIL"
+              label={labels.email}
+              defaultValue=""
+              required
+            />
+          </Group>
+          {enableName &&
+            <Group>
+              <TextField
+                id={`mce-NAME-${this.id}`}
+                name="NAME"
+                label={labels.name}
+                defaultValue=""
+              />
+            </Group>}
+          {enableLocation &&
+            <Group>
+              <TextField
+                id={`mce-LOCATION-${this.id}`}
+                name="LOCATION"
+                label={labels.location}
+                defaultValue=""
+              />
+            </Group>}
+          {enableLinkedIn &&
+            <Group>
+              <TextField
+                id={`mce-LINKEDIN-${this.id}`}
+                name="LINKEDIN"
+                label={labels.linkedIn}
+                defaultValue=""
+              />
+            </Group>}
+          {visibleGroups.length > 0 &&
+            <Group>
+              {groupTitle && <div><label>{groupTitle}</label></div>}
+              {visibleGroups.map(group =>
+                <Checkbox
+                  key={group.id}
+                  id={`mce-group[${MC.groupId}][${group.id}]-${this.id}`}
+                  name={`group[${MC.groupId}][${group.id}]`}
+                  value={group.id}
+                  label={group.label}
+                />
+              )}
+            </Group>}
+          {this.state.message &&
+            <Message dangerouslySetInnerHTML={{ __html: this.state.message }} />}
+          <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
+            {hiddenGroups.map(group =>
+              <input key={group.id} type="hidden" value={group.id} name={`group[${MC.groupId}][${group.id}]`} readOnly />)}
+            <input type="text" name={`b_${MC.userId}_${MC.formId}`} value="" readOnly />
+            <input type="hidden" name="u" value={MC.userId} readOnly />
+            <input type="hidden" name="id" value={MC.formId} readOnly />
+          </div>
+          <Footer>
+            <Button label={labels.button} />
+          </Footer>
+        </Form>
+      </Body>
+    );
   }
 }
 

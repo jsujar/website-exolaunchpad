@@ -28,6 +28,7 @@ const Checkbox: React.SFC<Props> = ({ id, name, value, label, onClick }) => {
       width: 30px;
       height: 30px;
       border: 2px solid #fff;
+      border-radius: 8px;
       background: transparent;
       vertical-align: middle;
       cursor: pointer;

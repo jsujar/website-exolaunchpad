@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import config from "../gatsby-config"
+import { withPrefix } from 'gatsby'
 
 export default class HTML extends React.Component {
   render() {

@@ -22,19 +22,19 @@ const DATA = {
         {
           title: 'What is ExO Launchpad?',
           description: () => 'The ExO Launchpad is a 5-day program that helps both innovators with a new idea and entrepreneurs with an early-stage startup to rapidly realize your vision.',
-          image: '/imgs/feature_1.png'
+          image: 'imgs/feature_1.png'
         },
         {
           title: 'Who is developing ExO Launchpad?',
           description: () => <>
             <a target="_blank" href="https://www.franciscopalao.com/">Francisco Palao</a> and <a target="_blank" href="http://www.salimismail.com/">Salim Ismail</a> are developing the ExO Launchpad with a global group of ExO practitioners and entrepreneurs around the world. Their previous book, <a href="http://www.exponentialtransformationbook.com/">TheExponentialTransformation</a>, is being adapted for education and entrepreneurship to help you launch quickly.
           </>,
-          image: '/imgs/feature_2.png'
+          image: 'imgs/feature_2.png'
         },
         {
           title: 'Why you need ExO Launchpad?',
           description: () => 'ExO Launchpad includes a number of our open tools and resources: ExO canvas, tools and methods allow anyone to tap into abundance and to manage it to scale exponentially as we deliver you educational resources, field experts and tools to help you build great exponential organizations.',
-          image: '/imgs/feature_3.png'
+          image: 'imgs/feature_3.png'
         }
       ]
     },
@@ -76,7 +76,7 @@ const DATA = {
         <>
           <span>Building Exponential Organizations - OpenExO<sub>®</sub> {year}</span>
           <small>Copyright &copy; {year} All rights reserved</small>
-          <small>Made with ❤ by <a target="_blank" href="https://www.exodevhub.com/">ExO DevHub</a></small>
+          <small>Made with ❤ by <a target="_blank" href="https://www.openexo.com/">OpenExO</a></small>
         </>
     }
   }
@@ -91,8 +91,8 @@ class IndexPage extends React.Component<null, null> {
           <Hero
             title={hero.title}
             subtitle={hero.description}
-            backgroundImage="/imgs/bg_hero.jpg"
-            image="/imgs/rocket.png"
+            backgroundImage="imgs/bg_hero.jpg"
+            image="imgs/rocket.png"
             cta={{ text: hero.btnLabel, target: '#mailinglist' }}
           />
           <About content={about.features.slice(0, 2)} />
@@ -112,8 +112,8 @@ class IndexPage extends React.Component<null, null> {
             />
           </div>
           <Footer
-            logoImg="/imgs/social/openexo_logo_white.png"
-            logoUrl="https://www.exodevhub.com"
+            logoImg="imgs/social/openexo_logo_white.png"
+            logoUrl="https://www.openexo.com"
             logoAlt="OpenExO"
             links={footer.links}
             copyright={footer.copyright()}

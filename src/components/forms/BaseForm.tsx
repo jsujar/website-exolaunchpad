@@ -152,6 +152,7 @@ class BaseForm extends React.Component<Props, State> {
           target="_blank"
           onSubmit={this.onSubmit}
         >
+          <input type="hidden" value="exolaunchpad.com" name="SITE" />
           <Group>
             <TextField
               id={`mce-EMAIL-${this.id}`}

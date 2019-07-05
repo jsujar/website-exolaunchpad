@@ -3,6 +3,8 @@
 const siteUrl = 'https://www.exolaunchpad.com/'
 
 module.exports = {
+  pathPrefix: `/website-exolaunchpad`,
+  
   siteMetadata: {
     title: 'ExO Launchpad',
     description: 'Launchpad helps you build a new type of organization, an ExO or Exponential Organization. An ExO is a purpose-driven venture that leverages exponential technologies and a set of common attributes to grow and transform the world.',

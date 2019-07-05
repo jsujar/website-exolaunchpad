@@ -29,7 +29,7 @@ const Hero: React.SFC<Props> = ({ title, subtitle, cta, image, backgroundImage }
         <div className="hero-content text-white">
           <div className="row">
             <div className="col-lg-8">
-              <h1><img src="/imgs/social/logo.svg" alt={title} /></h1>
+              <h1><img src="imgs/social/logo.svg" alt={title} /></h1>
               <p>{subtitle}</p>
               <a href={cta.target} className="site-btn sb-line">{cta.text}</a>
             </div>

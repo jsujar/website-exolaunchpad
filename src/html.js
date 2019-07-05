@@ -42,9 +42,9 @@ export default class HTML extends React.Component {
           <meta name="twitter:url" content={config.siteMetadata.siteUrl} />
           <meta name="twitter:card" content="summary"/>
           <meta name="twitter:description" content={config.siteMetadata.description} />
-          <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
-          <link rel="stylesheet" href="css/bootstrap.css" preload="true" />
-          <link rel="stylesheet" href="css/style.css" preload="true" />
+          <link rel="shortcut icon" type="image/x-icon" href={withPrefix('favicon.ico')} />
+          <link rel="stylesheet" href={withPrefix('css/bootstrap.css')} preload="true" />
+          <link rel="stylesheet" href={withPrefix('css/style.css')} preload="true" />
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>
@@ -55,7 +55,7 @@ export default class HTML extends React.Component {
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
-          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-133345282-1"></script>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135475643-6"></script>
           <script  dangerouslySetInnerHTML={{ __html: `
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

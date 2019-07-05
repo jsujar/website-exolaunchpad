@@ -42,9 +42,9 @@ export default class HTML extends React.Component {
           <meta name="twitter:url" content={config.siteMetadata.siteUrl} />
           <meta name="twitter:card" content="summary"/>
           <meta name="twitter:description" content={config.siteMetadata.description} />
-          <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
-          <link rel="stylesheet" href="/css/bootstrap.css" preload="true" />
-          <link rel="stylesheet" href="/css/style.css" preload="true" />
+          <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+          <link rel="stylesheet" href="css/bootstrap.css" preload="true" />
+          <link rel="stylesheet" href="css/style.css" preload="true" />
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>

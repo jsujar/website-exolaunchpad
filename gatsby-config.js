@@ -3,7 +3,7 @@
 const siteUrl = 'https://www.exolaunchpad.com/'
 
 module.exports = {
-  pathPrefix: `/website-exolaunchpad`,
+  pathPrefix: `/`,
   
   siteMetadata: {
     title: 'ExO Launchpad',

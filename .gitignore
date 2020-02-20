@@ -1,4 +1,6 @@
 .DS_Store
 .cache/
+.idea/
 public/
 node_modules/
+package-lock.json
